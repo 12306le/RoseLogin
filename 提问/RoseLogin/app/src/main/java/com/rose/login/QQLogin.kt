@@ -21,8 +21,8 @@ class QQLogin(private val log: (String) -> Unit) {
         const val PT_3RD_AID = "102072120"
         const val S_URL = "https://graph.qq.com/oauth2.0/login_jump"
         const val REDIRECT_URI = "https://meigui.qq.com/other/qcloginproxy.html"
-        const val UA = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 " +
-            "(KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
+        const val UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+            "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     }
 
     private val cookieJar = SimpleCookieJar()
@@ -49,7 +49,7 @@ class QQLogin(private val log: (String) -> Unit) {
     fun fetchQrCode(): Pair<Bitmap, String> {
         log("[2] 拉取二维码...")
         val url = "https://xui.ptlogin2.qq.com/ssl/ptqrshow" +
-            "?appid=$APPID&e=2&l=M&s=8&d=206&v=4&t=${Math.random()}" +
+            "?appid=$APPID&e=2&l=M&s=3&d=72&v=4&t=${Math.random()}" +
             "&daid=$DAID&pt_3rd_aid=$PT_3RD_AID&u1=${enc(S_URL)}"
         val resp = client.newCall(req(url)).execute()
         val bytes = resp.body!!.bytes()
