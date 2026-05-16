@@ -49,7 +49,7 @@ class QQLogin(private val log: (String) -> Unit) {
     fun fetchQrCode(): Pair<Bitmap, String> {
         log("[2] 拉取二维码...")
         val url = "https://xui.ptlogin2.qq.com/ssl/ptqrshow" +
-            "?appid=$APPID&e=2&l=M&s=3&d=72&v=4&t=${Math.random()}" +
+            "?appid=$APPID&e=2&l=M&s=8&d=206&v=4&t=${Math.random()}" +
             "&daid=$DAID&pt_3rd_aid=$PT_3RD_AID&u1=${enc(S_URL)}"
         val resp = client.newCall(req(url)).execute()
         val bytes = resp.body!!.bytes()
